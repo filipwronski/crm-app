@@ -1,0 +1,39 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="login_wrapper">
+    <div class="animate form login_form">
+        <section class="login_content">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+            <h1>Registration</h1>
+            <div class="form-group" id="fos_user_registration_form">
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'E-mail'|trans } }) }}
+                {{ form_errors(form.email) }}
+
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Username'|trans } }) }}
+                {{ form_errors(form.username) }}
+
+                {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Password'|trans } }) }}
+                {{ form_errors(form.plainPassword.first) }}
+
+                {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Password confirmation'|trans } }) }}
+                {{ form_errors(form.plainPassword.second) }}
+
+                {{ form_rest(form) }}
+
+            </div>
+            <div>
+                <input class="btn btn-default submit" type="submit" value="{{ 'registration.submit'|trans }}">
+                <span class="text-left">
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'Do you have accout?'|trans({}, 'FOSUserBundle') }}</a>
+                </span>
+            </div>
+            <div class="clearfix"></div>
+            <br />
+
+            <div>
+                <h1><i class="fa fa-cubes"></i> CRM-app</h1>
+                <p>©2016 All Rights Reserved. CRM-app. Privacy and Terms</p>
+            </div>
+            {{ form_end(form) }}
+        </section>
+    </div>
+</div>

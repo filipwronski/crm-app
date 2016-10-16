@@ -25,7 +25,18 @@
             <div class="menu_section">
                 <h3>Menu</h3>
                 <ul class="nav side-menu">
-                    <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+                    <li class=""><a><i class="fa fa-users"></i> Customers <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none;">
+                            <li><a href="{{ path('list_customers') }}">Customers list</a></li>
+                            <li><a href="{{ path('add_customer') }}">Add customer</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a><i class="fa fa-briefcase"></i> Employees <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none;">
+                            <li><a href="{{ path('list_employees') }}">Employees list</a></li>
+                            <li><a href="{{ path('add_employee') }}">Add employee</a></li>
+                        </ul>
+                    </li>
                     <li class=""><a><i class="fa fa-calendar"></i> Outlook <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none;">
                             <li><a href="#">Calendar</a></li>
@@ -63,7 +74,7 @@
             <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Logout" href="#">
+           <a data-toggle="tooltip" data-placement="top" title="{{ 'Logout'|trans({}, 'FOSUserBundle') }}"  href="{{ path('fos_user_security_logout') }}">{{ 'Logout'|trans({}, 'FOSUserBundle') }}
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
             </a>
         </div>
